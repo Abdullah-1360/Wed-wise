@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
                   height: 50,
                   width: 50,
                   child: Card(
-                    color: Colors.grey[100],
+                    color: Colors.grey[200],
                     elevation: 0,
                     shape: ContinuousRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -36,9 +36,9 @@ class _HomeState extends State<Home> {
                 ),
                  Expanded(child: Row(
                   children:[ Expanded(child: Container()),
-                    Icon(Icons.monitor_heart_outlined,size: 30,color: Colors.red,)
-                    ,Text(
-                    'Home',
+                    const Icon(Icons.monitor_heart_outlined,size: 30,color: Colors.red,)
+                    ,const Text(
+                    '  WedWise' ,
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
                   ),Expanded(child: Container()),]
                 )),
                 Padding(
-                  padding: const EdgeInsets.only(right: 25.0),
+                  padding: const EdgeInsets.only(right: 20.0),
                   child: SizedBox(
                     height: 50,
                     width: 50,
@@ -68,7 +68,8 @@ class _HomeState extends State<Home> {
 
               ],
             ),
-          )
+          ),
+
         ],
       ),
     );
