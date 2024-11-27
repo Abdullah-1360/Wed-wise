@@ -8,9 +8,15 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeState extends State<Home> with TickerProviderStateMixin {
+  final List<AssetImage> images = [
+    const AssetImage('assets/images/img.png'),
+    const AssetImage('assets/images/img2.png'),
+    const AssetImage('assets/images/img1.png'),
+  ];
   @override
   Widget build(BuildContext context) {
+    final TabController _tabController = TabController(length: 3, vsync: this);
     return Scaffold(
       body: Column(
         children: [
@@ -69,7 +75,6 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          const SizedBox(height: 15.0),
           Container(
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.only(left: 20.0),
@@ -82,21 +87,58 @@ class _HomeState extends State<Home> {
               ),
             ),
               ),
-          const SizedBox(height: 15.0),
           Container(
-            child: const TabBar(
-              isScrollable: true,
-              tabs: [
-              Tab(icon: Icon(Icons.home), text: "Dashboard"),
-              Tab(icon: Icon(Icons.checklist), text: "Checklist"),
-              Tab(icon: Icon(Icons.money), text: "Budget"),
-              Tab(icon: Icon(Icons.people), text: "Guest List"),
-              Tab(icon: Icon(Icons.shopping_cart), text: "Vendors"),
-              Tab(icon: Icon(Icons.photo_album), text: "Gallery"),
-            ],
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: TabBar(
+                indicatorWeight: 4.0,
+                indicatorSize: TabBarIndicatorSize.label,
+                labelColor: Colors.black,
+                indicatorColor: Colors.redAccent,
+                isScrollable: true,
+                labelPadding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                unselectedLabelColor: Colors.grey,
+                controller: _tabController,
+                tabs: const [
+                Tab(icon: Icon(Icons.attach_money), text: "Budget"),
+                Tab(icon: Icon(Icons.people), text: "Guest List"),
+                Tab(icon: Icon(Icons.shopping_cart), text: "Vendors"),
+              ],
 
+              ),
             ),
-          )
+          ),
+          Container(
+            padding: const EdgeInsets.only(left: 20.0),
+            height: 300,
+            width: double.maxFinite,
+            child: TabBarView(
+                controller: _tabController,
+                children: [
+              ListView.builder(
+                itemCount: 3,scrollDirection: Axis.horizontal,
+                itemBuilder:
+                (BuildContext context, int index) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 10,top: 15),
+                  height: 200,width: 200,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                          image: images[index],fit: BoxFit.cover
+                      )
+                  ),
+                );
+                },
+
+              ),
+              const Center(child: Text('G')),
+              const Center(child: Text('V')),
+
+            ]
+            ),
+          ),
+
         ],
       ),
     );
