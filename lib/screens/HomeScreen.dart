@@ -48,6 +48,7 @@ class _HomescreenState extends State<Homescreen> {
         gapLocation: GapLocation.center,
         notchSmoothness: NotchSmoothness.defaultEdge,
         leftCornerRadius: 32,
+        elevation: 20,
         rightCornerRadius: 32,
         onTap: (index) {
           setState(() {

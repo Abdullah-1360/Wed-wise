@@ -69,7 +69,34 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          const SizedBox(height: 15.0),
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.only(left: 20.0),
+            child: const Text(
+              'Plans',
+              style: TextStyle(
 
+                fontSize: 45.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+              ),
+          const SizedBox(height: 15.0),
+          Container(
+            child: const TabBar(
+              isScrollable: true,
+              tabs: [
+              Tab(icon: Icon(Icons.home), text: "Dashboard"),
+              Tab(icon: Icon(Icons.checklist), text: "Checklist"),
+              Tab(icon: Icon(Icons.money), text: "Budget"),
+              Tab(icon: Icon(Icons.people), text: "Guest List"),
+              Tab(icon: Icon(Icons.shopping_cart), text: "Vendors"),
+              Tab(icon: Icon(Icons.photo_album), text: "Gallery"),
+            ],
+
+            ),
+          )
         ],
       ),
     );
