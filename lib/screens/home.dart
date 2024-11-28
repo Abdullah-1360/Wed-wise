@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -43,11 +44,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                  Expanded(child: Row(
                   children:[ Expanded(child: Container()),
                     const Icon(Icons.monitor_heart_outlined,size: 30,color: Colors.red,)
-                    ,const Text(
+                    ,Text(
                     '  WedWise' ,
-                    style: TextStyle(
-                      fontSize: 24,
+                    style: GoogleFonts.abhayaLibre(
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),Expanded(child: Container()),]
                 )),
@@ -75,16 +77,17 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               ],
             ),
           ),
+          SizedBox(height: 20,),
           Container(
             alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.only(left: 20.0),
-            child: const Text(
+            padding: const EdgeInsets.only(left: 25.0),
+            child: Text(
               'Plans',
-              style: TextStyle(
-
-                fontSize: 45.0,
+              style: GoogleFonts.allura(
+                fontSize: 35,
                 fontWeight: FontWeight.bold,
-              ),
+                color: Colors.red[400],
+              )
             ),
               ),
           Container(
@@ -138,7 +141,25 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ]
             ),
           ),
+          const SizedBox(height: 15),
+          Container(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
+              children: [
+                Text(
+                    'Explore',
+                  style: GoogleFonts.abrilFatface(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
