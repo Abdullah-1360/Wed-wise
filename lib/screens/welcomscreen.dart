@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:wedwise/screens/HomeScreen.dart';
@@ -95,7 +94,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ElevatedButton(
                       onPressed: () {
                         // Navigate to home or main screen
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Homescreen()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Homescreen()));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent,

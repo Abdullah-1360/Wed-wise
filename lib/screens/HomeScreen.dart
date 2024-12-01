@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'search.dart';
+import '../bottomsheet/searchguestbottomsheet.dart';
 import 'profile.dart';
 import 'home.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
@@ -31,16 +30,10 @@ class _HomescreenState extends State<Homescreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButton: FloatingActionButton(
-        shape: CircleBorder(),
-        onPressed: () {
-          // Navigate to the Search page when FAB is pressed
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const Search()),
-          );
-        },
+        shape: const CircleBorder(),
+        onPressed: () => _showSearchBottomSheet(context),
+        backgroundColor: Colors.red[200],
         child: const Icon(Icons.search),
-        backgroundColor: Colors.redAccent,
       ),
       bottomNavigationBar: AnimatedBottomNavigationBar(
         icons: iconList,
@@ -59,3 +52,19 @@ class _HomescreenState extends State<Homescreen> {
     );
   }
 }
+void _showSearchBottomSheet(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    isScrollControlled: true,
+    builder: (context) => const FractionallySizedBox(
+      heightFactor: 0.8,
+      child: SearchGuestBottomSheet(),
+    ),
+  ).then((selectedGuest) {
+    if (selectedGuest != null) {
+      // Handle the selected guest
+      print('Selected Guest: ${selectedGuest['name']}');
+    }
+  });
+}
+
