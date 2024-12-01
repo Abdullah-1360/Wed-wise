@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'search.dart';
 import 'profile.dart';
@@ -31,7 +30,7 @@ class _HomescreenState extends State<Homescreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       floatingActionButton: FloatingActionButton(
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         onPressed: () {
           // Navigate to the Search page when FAB is pressed
           Navigator.push(
@@ -39,8 +38,8 @@ class _HomescreenState extends State<Homescreen> {
             MaterialPageRoute(builder: (context) => const Search()),
           );
         },
+        backgroundColor: Colors.red[200],
         child: const Icon(Icons.search),
-        backgroundColor: Colors.redAccent,
       ),
       bottomNavigationBar: AnimatedBottomNavigationBar(
         icons: iconList,
