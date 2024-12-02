@@ -29,6 +29,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     CupertinoIcons.gift,          // Gift registry or budget
     CupertinoIcons.chat_bubble_2, // Messaging or communication
   ];
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final List<AssetImage> images = [
     const AssetImage('assets/images/img.png'),
     const AssetImage('assets/images/img2.png'),
@@ -38,6 +39,42 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final TabController tabController = TabController(length: 3, vsync: this);
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.pinkAccent,
+              ),
+              child: Text(
+                '',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
+              onTap: () {
+                // Close the drawer and perform an action
+                _scaffoldKey.currentState?.closeDrawer();
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                // Close the drawer and perform an action
+                _scaffoldKey.currentState?.closeDrawer();
+              },
+            ),
+          ],
+        ),
+      ),
+      key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -45,19 +82,24 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               padding: const EdgeInsets.only(top: 60,left: 20),
               child: Row(
                 children: [
-                  SizedBox(
-                    height: 50,
-                    width: 50,
-                    child: Card(
-                      color: Colors.grey[200],
-                      elevation: 0,
-                      shape: ContinuousRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: const Icon(
-                        Icons.menu_rounded,
-                        size: 30,
-                        color:Colors.black12,
+                  GestureDetector(
+                    onTap: () {
+                      _scaffoldKey.currentState?.openDrawer();
+                    },
+                    child: SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: Card(
+                        color: Colors.grey[200],
+                        elevation: 0,
+                        shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Icon(
+                          Icons.menu_rounded,
+                          size: 30,
+                          color:Colors.black12,
+                        ),
                       ),
                     ),
                   ),
