@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:wedwise/Guestlist.dart';
 import 'package:wedwise/screens/Love.dart';
 
+import 'Giftscreen.dart';
+import 'chatscreen.dart';
+import 'eventscreen.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -183,7 +187,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
 
                 return GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const LoveScreen()));
+                    Navigator.push(context, getPages()[index]);
                   },
                   child: Container(
                     margin: const EdgeInsets.only(right: 20),
@@ -219,4 +223,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ),
     );
   }
+}
+List<MaterialPageRoute> getPages() {
+  return [
+    MaterialPageRoute(builder: (context) => const LoveScreen()),
+    MaterialPageRoute(builder: (context) => const EventsScreen()), // Update to your EventsScreen
+    MaterialPageRoute(builder: (context) => const GiftsScreen()),  // Update to your GiftsScreen
+    MaterialPageRoute(builder: (context) => const ChatScreen()),   // Update to your ChatScreen
+  ];
 }
