@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wedwise/Guestlist.dart';
 import 'package:wedwise/screens/Love.dart';
+import 'package:wedwise/vendorlist.dart';
 
 import 'Giftscreen.dart';
 import 'chatscreen.dart';
@@ -123,7 +124,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 tabs: const [
                 Tab(icon: Icon(Icons.attach_money), text: "Budget"),
                 Tab(icon: Icon(Icons.people), text: "Guest List"),
-                Tab(icon: Icon(Icons.shopping_cart), text: "Vendors"),
+                Tab(icon: Icon(Icons.business), text: "Vendors"),
               ],
 
               ),
@@ -155,7 +156,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                   ),
                 ),
                  GuestListScreen(),
-                const Center(child: Text('V')),
+                VendorListScreen()
         
               ]
               ),
